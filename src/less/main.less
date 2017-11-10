@@ -1,0 +1,384 @@
+@import 'media';
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,900');
+
+@header-violet-color: #6927CF;
+@nearly-black-color: #212121;
+@span-red-color: #EC1D31;
+@bottom-border-grey-color: #686868;
+@menu-top-grey-color: #A1A1A1;
+@text-bottom-grey-color: #5C5C5C;
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Roboto, sans-serif;
+}
+
+.header {
+    height: 120px;
+    width: 100%;
+    background: linear-gradient(to bottom, @header-violet-color 60%, @nearly-black-color 40%);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tam-taram-logo {
+    width: 90%;
+    padding: 30px 0;
+
+    svg {
+        width: 250px;
+        float: right;
+    }
+}
+
+.nearest-salon {
+    color: white;
+    width: 50%;
+    box-sizing: border-box;
+    padding-left: 20px;
+    font-size: 12px;
+
+    &__text {
+        margin: 0;
+    }
+
+    &__address {
+        font-weight: 100;
+        margin: 0;
+    }
+
+    svg {
+        width: 11px;
+    }
+}
+
+.search {
+    width: 50%;
+    box-sizing: border-box;
+
+    svg {
+        width: 20px;
+        float: right;
+        padding-right: 20px;
+    }
+}
+
+.main {
+    width: 100%;
+    padding-bottom: 85px;
+}
+
+.navigation {
+    display: none;
+    @media @tablet {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        font-weight: 300;
+    }
+
+    &__list {
+        display: none;
+        @media @tablet {
+            margin: 0;
+            padding: 0 10px;
+        }
+    }
+
+    &__item {
+        display: none;
+        @media @tablet {
+            display: inline-block;
+            list-style-type: none;
+            padding: 5px;
+        }
+    }
+
+    &__link {
+        display: none;
+        @media @tablet {
+            color: @menu-top-grey-color;
+            text-decoration: none;
+        }
+    }
+}
+
+.breadcrumbs {
+    width: 90%;
+    margin: 0 auto;
+    font-size: 12px;
+
+    &__list {
+        list-style-type: none;
+        padding: 0;
+        margin-bottom: 30px;
+    }
+
+    &__item {
+        display: inline-block;
+    }
+
+    &__separator {
+        display: inline-block;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: black;
+    }
+
+    &__link_active {
+        color: @span-red-color;
+    }
+}
+
+.title {
+    margin-bottom: 10px;
+
+    &__text {
+        margin: 0;
+    }
+
+    &_primary {
+    }
+
+    &_secondary {
+        margin-top: 55px;
+    }
+}
+
+.primary {
+    border-bottom: 2px solid @bottom-border-grey-color;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.play {
+    position: absolute;
+    top: 33%;
+    left: 43%;
+    width: 16%;
+}
+
+.video-primary {
+    &__shortcut {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.video-description {
+    &__text {
+        text-align: justify;
+        font-weight: 500;
+    }
+}
+
+.span {
+    &_title {
+        color: @span-red-color;
+    }
+
+    &_emphasized-thin {
+        color: white;
+        font-weight: 100;
+    }
+
+    &_emphasized-bold {
+        font-weight: 400;
+        font-weight: 400;
+    }
+}
+
+.load-more {
+    display: flex;
+    justify-content: center;
+
+    @media @tablet {
+        display: none;
+    }
+
+    &__button {
+        font: 100 12px Roboto;
+        padding: 14px 35px;
+        background-color: @nearly-black-color;
+        color: white;
+        border-radius: 0;
+        border: 0;
+        margin-bottom: 30px;
+    }
+}
+
+.stepbystep {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.video-stepbystep-container {
+}
+
+.video-stepbystep {
+    position: relative;
+
+    &__shortcut {
+    }
+}
+
+.education {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.video-education-container {
+}
+
+.video-education {
+    position: relative;
+
+    &__shortcut {
+    }
+}
+
+.inspiration {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.video-inspiration-container {
+}
+
+.video-inspiration {
+    position: relative;
+
+    &__shortcut {
+    }
+}
+
+.shortcut-secondary {
+    height: 100%;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.footer {
+    background: @nearly-black-color;
+    padding: 13px 30px 160px;
+    display: flex;
+    flex-direction: column;
+
+    @media @tablet {
+        flex-direction: row;
+        justify-content: space-between;
+        padding-bottom: 10px;
+    }
+}
+
+.menu-bottom {
+    @media @tablet {
+        order: 1;
+        width: 33%;
+    }
+
+    &__list {
+        color: @text-bottom-grey-color;
+        padding-left: 0;
+        margin-top: 15px;
+        margin-bottom: 30px;
+
+        @media @tablet {
+            margin: 0;
+        }
+    }
+
+    &__item {
+        display: inline-block;
+        list-style-type: none;
+        padding-right: 8px;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: @text-bottom-grey-color;
+        font-size: 11px;
+    }
+}
+
+.menu-social {
+    @media @tablet {
+        order: 2;
+        width: 33%;
+    }
+
+    &__list {
+        padding-left: 0;
+        margin-top: 15px;
+        margin-bottom: 30px;
+
+        @media @tablet {
+            display: flex;
+            justify-content: space-around;
+            margin: 5px 0 0;
+        }
+    }
+
+    &__item {
+        display: inline-block;
+        list-style-type: none;
+        padding-right: 18px;
+
+        @media @tablet {
+            padding: 0;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+    }
+
+    &__img {
+        height: 20px;
+    }
+}
+
+.customization {
+    padding-left: 0;
+    margin-top: 15px;
+    margin-bottom: 30px;
+
+    @media @tablet {
+        order: 3;
+        width: 33%;
+        margin: 0;
+    }
+}
+
+.location {
+
+    @media @tablet {
+        float: right;
+    }
+
+    &__current {
+        color: @text-bottom-grey-color;
+        margin: 0;
+        font-size: 11px;
+    }
+}
+
+.language {
+
+    @media @tablet {
+        clear: right;
+        float: right;
+    }
+
+    &__current {
+        color: @text-bottom-grey-color;
+        margin: 0;
+        font-size: 11px;
+    }
+}
