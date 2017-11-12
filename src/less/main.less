@@ -17,26 +17,79 @@ body {
 }
 
 .header {
-    height: 120px;
+    height: 100px;
     width: 100%;
-    background: linear-gradient(to bottom, @header-violet-color 60%, @nearly-black-color 40%);
+}
+
+.header-top {
+    height: 60%;
+    background: @header-violet-color;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.header-bottom {
+    height: 40%;
+    background: @nearly-black-color;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.hamburger {
+    position: relative;
+    display: inline-block;
+    width: 2.5em;
+    height: .8em;
+    margin-right: 1.2em;
+    border-top: .15em solid white;
+    border-bottom: .15em solid white;
+
+    @media @tablet {
+        display: none;
+    }
+}
+
+.hamburger:before {
+    content: "";
+    position: absolute;
+    top: 0.3em;
+    left: 0px;
+    width: 100%;
+    border-top: 0.15em solid white;
 }
 
 .tam-taram-logo {
-    width: 90%;
-    padding: 30px 0;
-
     svg {
-        width: 250px;
-        float: right;
+        width: 220px;
+        padding-top: 5px;
+
+        @media @tablet {
+            width: 270px;
+        }
+    }
+}
+
+.hide-on-tablet {
+    @media @tablet {
+        display: none;
+    }
+}
+
+.hide-on-mobile {
+    display: none; 
+
+    @media @tablet {
+        display: block;
     }
 }
 
 .nearest-salon {
     color: white;
-    width: 50%;
+    width: 40%;
     box-sizing: border-box;
     padding-left: 20px;
     font-size: 12px;
@@ -56,7 +109,7 @@ body {
 }
 
 .search {
-    width: 50%;
+    width: 40%;
     box-sizing: border-box;
 
     svg {
@@ -64,16 +117,21 @@ body {
         float: right;
         padding-right: 20px;
     }
-}
 
-.main {
-    width: 100%;
-    padding-bottom: 85px;
+    &__input {
+        display: none;
+    }
+
+    &__submit {
+        display: none;
+    }
 }
 
 .navigation {
     display: none;
+    
     @media @tablet {
+        display: block;
         margin: 0;
         padding: 0;
         text-align: center;
@@ -81,29 +139,44 @@ body {
     }
 
     &__list {
-        display: none;
+
         @media @tablet {
             margin: 0;
-            padding: 0 10px;
+            padding: 0;
         }
     }
 
     &__item {
-        display: none;
+
         @media @tablet {
             display: inline-block;
             list-style-type: none;
-            padding: 5px;
+            padding: 10px 6px;
+        }
+
+        @media @desktop {
+            padding-left: 16px;
+            padding-right: 16px;
         }
     }
 
+    &__item_active {
+        background-color: black;
+    }
+
     &__link {
-        display: none;
+
         @media @tablet {
+            display: block;
             color: @menu-top-grey-color;
             text-decoration: none;
         }
     }
+}
+
+.main {
+    width: 100%;
+    padding-bottom: 85px;
 }
 
 .breadcrumbs {
@@ -133,6 +206,14 @@ body {
     &__link_active {
         color: @span-red-color;
     }
+}
+
+.fancybox-slide--video .fancybox-content {
+	width  : 533px;
+	height : 300px;
+	max-width  : 80%;
+	max-height : 80%;
+  margin: 0;
 }
 
 .title {
@@ -223,6 +304,10 @@ body {
 
 .video-stepbystep {
     position: relative;
+
+    &__link {
+        display: none;
+    }
 
     &__shortcut {
     }

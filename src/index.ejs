@@ -11,44 +11,63 @@
 </head>
 <body>
     <header class="header">
-        <div class="tam-taram-logo">
-            <%- include img/svg/logo.svg %>
+        <div class="header-top">
+            <div class="hamburger" id="js-hamburger"></div>
+    
+            <div class="nearest-salon hide-on-mobile">
+                <p class="nearest-salon__text"><span class="span span_emphasized-bold">NEAREST SALON</span>
+                    <%- include img/svg/ico_dropdown.svg %>
+                </p>
+                <p class="nearest-salon__address">Plush Salon 92101</p>
+            </div>
+
+            <div class="tam-taram-logo">
+                <%- include img/svg/logo.svg %>
+            </div>
+    
+            <form method="get" action="path" name="search" id="search" class="search hide-on-mobile">
+                <input type="search" class="search__input">
+                <input type="submit" value="" class="search__submit">
+                <%- include img/svg/ico_search.svg %>
+            </form>
         </div>
+            
+        <div class="header-bottom">
+            <div class="nearest-salon hide-on-tablet">
+                <p class="nearest-salon__text hide-on-tablet"><span class="span span_emphasized-bold hide-on-tablet">NEAREST SALON</span>
+                    <%- include img/svg/ico_dropdown.svg %>
+                </p>
+                <p class="nearest-salon__address hide-on-tablet">Plush Salon 92101</p>
+            </div>
 
-        <div class="nearest-salon">
-            <p class="nearest-salon__text"><span class="span span_emphasized-bold">NEAREST SALON</span>
-                <%- include img/svg/ico_dropdown.svg %>
-            </p>
-            <p class="nearest-salon__address">Plush Salon 92101</p>
-        </div>
-
-        <form method="get" action="path" name="search" id="search" class="search">
-            <input type="search" class="search__input">
-            <input type="submit" value="" class="search__submit">
-            <%- include img/svg/ico_search.svg %>
-        </form>
-
-        <div class="menu header__menu navigation">
-            <ul class="navigation__list">
-                <% const navigationItems = [
-                    {title: 'HAIRCARE', isActive: false, link: '#'},
-                    {title: 'COLOR', isActive: false, link: '#'},
-                    {title: 'STYLING', isActive: false, link: '#'},
-                    {title: 'TEXTURE', isActive: false, link: '#'},
-                    {title: 'GET INSPIRED', isActive: false, link: '#'},
-                    {title: 'SOCIAL', isActive: false, ink: '#'},
-                    {title: 'NEWS', isActive: false, link: '#'},
-                    {title: 'ABOUT', isActive: false, link: '#'},
-                    {title: 'PROFESSIONAL', isActive: true, link: '#'}
-                ]; %>
-
-                <% navigationItems.forEach((item) => { %>
-                <li class="navigation__item">
-                    <a class="navigation__link <% item.isActive ? "navigation__link_active" : "" %>" href="<%= item.link %>"><%= item.title %></a>
-                </li>
-                <% }) %>
-            </ul>
-        </div>
+            <form method="get" action="path" name="search" id="search" class="search hide-on-tablet">
+                <input type="search" class="search__input">
+                <input type="submit" value="" class="search__submit">
+                <%- include img/svg/ico_search.svg %>
+            </form>
+        
+            <div class="menu header__menu navigation">
+                <ul class="navigation__list">
+                    <% const navigationItems = [
+                        {title: 'HAIRCARE', isActive: false, link: '#'},
+                        {title: 'COLOR', isActive: false, link: '#'},
+                        {title: 'STYLING', isActive: false, link: '#'},
+                        {title: 'TEXTURE', isActive: false, link: '#'},
+                        {title: 'GET INSPIRED', isActive: false, link: '#'},
+                        {title: 'SOCIAL', isActive: false, ink: '#'},
+                        {title: 'NEWS', isActive: false, link: '#'},
+                        {title: 'ABOUT', isActive: false, link: '#'},
+                        {title: 'PROFESSIONAL', isActive: true, link: '#'}
+                    ]; %>
+    
+                    <% navigationItems.forEach((item) => { %>
+                    <li class="navigation__item <%= item.isActive ? "navigation__item_active" : "" %>">
+                        <a class="navigation__link" href="<%= item.link %>"><%= item.title %></a>
+                    </li>
+                    <% }) %>
+                </ul>
+            </div>
+        </div>  
     </header>
 
     <section class="main">
@@ -76,7 +95,9 @@
             </div>
 
             <div class="video-primary">
-                <img class="video-primary__shortcut" src="https://img.youtube.com/vi/z8M0Fa1JVco/maxresdefault.jpg">
+                <a data-fancybox href="https://youtu.be/z8M0Fa1JVco">
+                    <img class="video-primary__shortcut" src="https://img.youtube.com/vi/z8M0Fa1JVco/maxresdefault.jpg">
+                </a>
                 <img class="play" src="img/svg/ico_play.svg">
             </div>
             <div class="video-description">
@@ -98,13 +119,16 @@
 
                 <% stepByStepVideos.forEach((item) => { %>
                 <div class="video-stepbystep">
-                    <img class="shortcut-secondary video-stepbystep__shortcut" src="https://img.youtube.com/vi/<%= item %>/maxresdefault.jpg">
-                    <img class="play" src="img/svg/ico_play.svg">
+                    <a data-fancybox href="https://youtu.be/<%= item %>" class="video-stepbystep__link">
+                        <img class="shortcut-secondary video-stepbystep__shortcut" src="https://img.youtube.com/vi/<%= item %>/maxresdefault.jpg">
+                        <img class="play" src="img/svg/ico_play.svg">
+                    </a>
+                    
                 </div>
                 <% })%>
             </div>
 
-            <div class="load-more">
+            <div id="loadMoreStepByStep" class="load-more">
                 <button class="load-more__button">LOAD MORE</button>
             </div>
         </div>
@@ -118,8 +142,10 @@
 
                 <% educationVideos.forEach((item) => { %>
                 <div class="video-education">
-                    <img class="shortcut-secondary video-education__shortcut" src="https://img.youtube.com/vi/<%= item %>/maxresdefault.jpg">
-                    <img class="play" src="img/svg/ico_play.svg">
+                    <a data-fancybox href="https://youtu.be/<%= item %> class="video-education__link">
+                        <img class="shortcut-secondary video-education__shortcut" src="https://img.youtube.com/vi/<%= item %>/maxresdefault.jpg">
+                        <img class="play" src="img/svg/ico_play.svg">
+                    </a>
                 </div>
                 <% })%>
             </div>
@@ -138,8 +164,10 @@
 
                 <% inspirationVideos.forEach((item) => { %>
                 <div class="video-inspiration">
-                    <img class="shortcut-secondary video-inspiration__shortcut" src="https://img.youtube.com/vi/<%= item %>/<%= item === 'vz0k8O-Ef9Y' ? 'mqdefault' : 'maxresdefault' %>.jpg">
-                    <img class="play" src="img/svg/ico_play.svg">
+                    <a data-fancybox href="https://youtu.be/<%= item %> class="video-inspiration__link">
+                        <img class="shortcut-secondary video-inspiration__shortcut" src="https://img.youtube.com/vi/<%= item %>/<%= item === 'vz0k8O-Ef9Y' ? 'mqdefault' : 'maxresdefault' %>.jpg">
+                        <img class="play" src="img/svg/ico_play.svg">
+                    </a>
                 </div>
                 <% })%>
             </div>
