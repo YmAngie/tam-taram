@@ -1,5 +1,7 @@
 // load more
-$(function () {
+$( window ).on( "load", showVideos );
+
+function showVideos () {
     if($(window).width() < 768) {
         $(".js-video-stepbystep__link").slice(0, 3).show();
         $("#loadMoreStepByStep").click(function (e) {
@@ -7,7 +9,7 @@ $(function () {
             $(".js-video-stepbystep__link:hidden").slice(0, 3).slideDown();
         });
     }
-});
+}
 
 
 // slick slider
@@ -38,6 +40,7 @@ $(document).ready(function() {
 // fix unslick in slick slider
 $(window).resize(function() {
     $('.js-responsive').slick('resize');
+    showVideos();
 });
 
 $(window).on('orientationchange', function() {
