@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>TAM-TARAM</title>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -13,9 +14,9 @@
     <header class="header">
         <div class="header-top">
             <div class="hamburger" id="js-hamburger"></div>
-    
+
             <div class="nearest-salon hide-on-mobile">
-                <p class="nearest-salon__text"><span class="span span_emphasized-bold">NEAREST SALON</span>
+                <p class="nearest-salon__text">NEAREST SALON
                     <%- include img/svg/ico_dropdown.svg %>
                 </p>
                 <p class="nearest-salon__address">Plush Salon 92101</p>
@@ -24,11 +25,10 @@
             <div class="tam-taram-logo">
                 <%- include img/svg/logo.svg %>
             </div>
-    
-            <form method="get" action="path" name="search" id="search" class="search hide-on-mobile">
-                <input type="search" class="search__input">
-                <input type="submit" value="" class="search__submit">
-                <%- include img/svg/ico_search.svg %>
+
+            <form method="get" action="path" name="search" id="top-search" class="search js-top-search hide-on-mobile ">
+                <input type="search" class="search__input js-top-search__input hide">
+                <input type="submit" value="" class="search__submit js-top-search__submit">
             </form>
         </div>
             
@@ -40,10 +40,9 @@
                 <p class="nearest-salon__address hide-on-tablet">Plush Salon 92101</p>
             </div>
 
-            <form method="get" action="path" name="search" id="search" class="search hide-on-tablet">
-                <input type="search" class="search__input">
-                <input type="submit" value="" class="search__submit">
-                <%- include img/svg/ico_search.svg %>
+            <form method="get" action="path" name="search" id="bottom-search" class="search js-bottom-search hide-on-tablet ">
+                <input type="search" class="search__input js-bottom-search__input hide">
+                <input type="submit" value="" class="search__submit js-bottom-search__submit">
             </form>
         
             <div class="menu header__menu navigation">
@@ -91,41 +90,43 @@
 
         <div class="primary">
             <div class="title title_primary">
-                <h1 class="title__text">VIDEOS</h1>
+                <h1 class="title__text title__text_primary">VIDEOS</h1>
             </div>
 
             <div class="video-primary">
-                <a data-fancybox href="https://youtu.be/z8M0Fa1JVco">
-                    <img class="video-primary__shortcut" src="https://img.youtube.com/vi/z8M0Fa1JVco/maxresdefault.jpg">
+                <a data-fancybox href="https://youtu.be/z8M0Fa1JVco" class="video-primary__link">
+                    <img class="video-primary__shortcut" src="https://img.youtube.com/vi/z8M0Fa1JVco/maxresdefault.jpg" alt="Main video">
                 </a>
-                <img class="play" src="img/svg/ico_play.svg">
+                <img class="play play_primary" src="img/svg/ico_play.svg" alt="">
             </div>
             <div class="video-description">
-                <p class="video-description__text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Pellentesque lobortis, nisl at ullamcorper egestas, felisadi piscing dolor,
-                    a interdum lorem urna quis magna.
-                </p>
+                <div class="video-description-i">
+                    <p class="video-description__text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Pellentesque lobortis, nisl at ullamcorper egestas, felisadi piscing dolor,
+                        a interdum lorem urna quis magna.
+                    </p>
+                </div>
             </div>
         </div>
 
         <div class="stepbystep">
             <div class="title title_secondary">
-                <h1 class="title__text">STEP <span class="span span_title">BY</span> STEP</h1>
+                <h1 class="title__text title__text_secondary">STEP <span class="span span_title">BY</span> STEP</h1>
             </div>
 
             <div class="video-stepbystep-container">
                 <% const stepByStepVideos = ['Wi2KcdoCuo4', '8H6dYUgQKB8', 'PZjGrmHdFME', '_wLGr24VeoI', 'DG4FAU5qmMY']; %>
-
-                <% stepByStepVideos.forEach((item) => { %>
-                <div class="video-stepbystep">
-                    <a data-fancybox href="https://youtu.be/<%= item %>" class="video-stepbystep__link">
-                        <img class="shortcut-secondary video-stepbystep__shortcut" src="https://img.youtube.com/vi/<%= item %>/maxresdefault.jpg">
-                        <img class="play" src="img/svg/ico_play.svg">
-                    </a>
-                    
+                <div class="js-responsive">
+                    <% stepByStepVideos.forEach((item) => { %>
+                    <div class="video-stepbystep">
+                        <a data-fancybox href="https://youtu.be/<%= item %>" class="video-stepbystep__link js-video-stepbystep__link">
+                            <img class="shortcut-secondary video-stepbystep__shortcut" src="https://img.youtube.com/vi/<%= item %>/maxresdefault.jpg" alt="Step By Step video">
+                            <img class="play play_secondary" src="img/svg/ico_play.svg" alt="">
+                        </a>
+                    </div>
+                    <% })%>
                 </div>
-                <% })%>
             </div>
 
             <div id="loadMoreStepByStep" class="load-more">
@@ -135,19 +136,21 @@
 
         <div class="education">
             <div class="title title_secondary">
-                <h1 class="title__text">CRAFT <span class="span span_title">EDUCATION</span></h1>
+                <h1 class="title__text title__text_secondary">CRAFT <span class="span span_title">EDUCATION</span></h1>
             </div>
+
             <div class="video-education-container">
                 <% const educationVideos = ['RmNWNLXmswk', '-tztXOz8Vc0', 'kUfIVtyydgQ']; %>
-
-                <% educationVideos.forEach((item) => { %>
-                <div class="video-education">
-                    <a data-fancybox href="https://youtu.be/<%= item %> class="video-education__link">
-                        <img class="shortcut-secondary video-education__shortcut" src="https://img.youtube.com/vi/<%= item %>/maxresdefault.jpg">
-                        <img class="play" src="img/svg/ico_play.svg">
-                    </a>
+                <div class="js-responsive">
+                    <% educationVideos.forEach((item) => { %>
+                    <div class="video-education">
+                        <a data-fancybox href="https://youtu.be/<%= item %>" class="video-education__link">
+                            <img class="shortcut-secondary video-education__shortcut" src="https://img.youtube.com/vi/<%= item %>/maxresdefault.jpg" alt="Craft Education video">
+                            <img class="play play_secondary" src="img/svg/ico_play.svg" alt="">
+                        </a>
+                    </div>
+                    <% })%>
                 </div>
-                <% })%>
             </div>
 
             <div class="load-more">
@@ -157,19 +160,21 @@
 
         <div class="inspiration">
             <div class="title title_secondary">
-                <h1 class="title__text">INSPIRATION</h1>
+                <h1 class="title__text title__text_secondary">INSPIRATION</h1>
             </div>
+
             <div class="video-inspiration-container">
                 <% const inspirationVideos = ['VmmwwzR536g', 'vz0k8O-Ef9Y', '6oPBFnsqJW8']; %>
-
-                <% inspirationVideos.forEach((item) => { %>
-                <div class="video-inspiration">
-                    <a data-fancybox href="https://youtu.be/<%= item %> class="video-inspiration__link">
-                        <img class="shortcut-secondary video-inspiration__shortcut" src="https://img.youtube.com/vi/<%= item %>/<%= item === 'vz0k8O-Ef9Y' ? 'mqdefault' : 'maxresdefault' %>.jpg">
-                        <img class="play" src="img/svg/ico_play.svg">
-                    </a>
+                <div class="js-responsive">
+                    <% inspirationVideos.forEach((item) => { %>
+                    <div class="video-inspiration">
+                        <a data-fancybox href="https://youtu.be/<%= item %>" class="video-inspiration__link">
+                            <img class="shortcut-secondary video-inspiration__shortcut" src="https://img.youtube.com/vi/<%= item %>/<%= item === 'vz0k8O-Ef9Y' ? 'mqdefault' : 'maxresdefault' %>.jpg" alt="Inspiration video">
+                            <img class="play play_secondary" src="img/svg/ico_play.svg" alt="">
+                        </a>
+                    </div>
+                    <% })%>
                 </div>
-                <% })%>
             </div>
 
             <div class="load-more">
@@ -191,7 +196,9 @@
 
                 <% socialMenuItems.forEach((item) => { %>
                 <li class="menu-social__item">
-                    <a class="menu-social__link" href="<%= item.link %>"><img class="menu-social__img" src="img/svg/ico_<%= item.title %>.svg"></a>
+                    <a class="menu-social__link" href="<%= item.link %>">
+                        <img class="menu-social__img" src="img/svg/ico_<%= item.title %>.svg" alt="<%= item.title %>">
+                    </a>
                 </li>
                 <% }) %>
             </ul>
@@ -203,6 +210,7 @@
                     LOCATION: <span class="span span_emphasized-thin">UNITED STATES</span>
                 </p>
             </div>
+
             <div class="language">
                 <p class="language__current">
                     LANGUAGE: <span class="span span_emphasized-thin">ENGLISH</span>
@@ -227,7 +235,6 @@
             <% }) %>
             </ul>
         </div>
-
     </footer>
 
 <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
